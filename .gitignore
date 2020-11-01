@@ -121,4 +121,8 @@ dist
 !.vscode/extensions.json
 *.code-workspace
 
+# Carpetas adicionales del proyecto
+
+startbootstrap-grayscale-gh-pages/
+
 # End of https://www.toptal.com/developers/gitignore/api/vscode,node
