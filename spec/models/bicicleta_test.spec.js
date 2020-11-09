@@ -21,68 +21,68 @@ describe('Testing bicicletas', function(){
         });
     });
 
-    // describe('Bicicleta.createInstance', () => {
-    //     it('crea una instancia de Bicicleta', () => {
-    //         var bici = Bicicleta.createInstance(1, "verde", "urbana", [-34.5, -54.1]);
+    describe('Bicicleta.createInstance', () => {
+        it('crea una instancia de Bicicleta', () => {
+            var bici = Bicicleta.createInstance(1, "verde", "urbana", [-34.5, -54.1]);
 
-    //         expect(bici.code).toBe(1);
-    //         expect(bici.color).toBe("verde");
-    //         expect(bici.modelo).toBe("urbana");
-    //         expect(bici.ubicacion[0]).toEqual(-34.5);
-    //         expect(bici.ubicacion[1]).toEqual(-54.1);
-    //     });
-    // });
+            expect(bici.code).toBe(1);
+            expect(bici.color).toBe("verde");
+            expect(bici.modelo).toBe("urbana");
+            expect(bici.ubicacion[0]).toEqual(-34.5);
+            expect(bici.ubicacion[1]).toEqual(-54.1);
+        });
+    });
 
-    // describe('Bicicleta.allBicis', () => {
-    //     it('comienza vacia', (done) => {
-    //         Bicicleta.allBicis(function(err, bicis){
-    //             console.log("testeando allBicis")
-    //             expect(bicis.length).toBe(0);
-    //             done();
-    //         });
-    //     });
-    // });
+    describe('Bicicleta.allBicis', () => {
+        it('comienza vacia', (done) => {
+            Bicicleta.allBicis(function(err, bicis){
+                console.log("testeando allBicis")
+                expect(bicis.length).toBe(0);
+                done();
+            });
+        });
+    });
 
-    // describe('Bicicleta.add', ()=> {
-    //     it('agrega solo una bici', (done) => {
-    //         var aBici = new Bicicleta({code: 1, color: "verde", modelo: "urbana"});
-    //         console.log("creada aBici")
-    //         Bicicleta.add(aBici, function(err, newBici){
-    //             console.log("nueva bici añadida")
-    //             if(err) console.log(err);
-    //             Bicicleta.allBicis(function(err, bicis){
-    //                 expect(bicis.length).toEqual(1);
-    //                 expect(bicis[0].code).toEqual(aBici.code);
+    describe('Bicicleta.add', ()=> {
+        it('agrega solo una bici', (done) => {
+            var aBici = new Bicicleta({code: 1, color: "verde", modelo: "urbana"});
+            console.log("creada aBici")
+            Bicicleta.add(aBici, function(err, newBici){
+                console.log("nueva bici añadida")
+                if(err) console.log(err);
+                Bicicleta.allBicis(function(err, bicis){
+                    expect(bicis.length).toEqual(1);
+                    expect(bicis[0].code).toEqual(aBici.code);
 
-    //                 done();
-    //             });
-    //         });
-    //     });
-    // });
+                    done();
+                });
+            });
+        });
+    });
 
-    // describe('Bicicleta.findByCode', () => {
-    //     it('debe devolver la bici con code 1', (done) => {
-    //         Bicicleta.allBicis(function(err, bicis){
-    //             expect(bicis.length).toBe(0);
+    describe('Bicicleta.findByCode', () => {
+        it('debe devolver la bici con code 1', (done) => {
+            Bicicleta.allBicis(function(err, bicis){
+                expect(bicis.length).toBe(0);
 
-    //             var aBici = new Bicicleta({code: 1, color: "verde", modelo: "urbana"});
-    //             Bicicleta.add(aBici, function(err, newBici){
-    //                 if(err) console.log(err)
-    //                 var aBici2 = new Bicicleta({code: 2, color: "rojo", modelo: "mountainbike"});
-    //                 Bicicleta.add(aBici2, function(err, newBici){
-    //                     if(err) console.log(err)
-    //                     Bicicleta.findByCode(1, function(err, targetBici){
-    //                         expect(targetBici.code).toBe(1);
-    //                         expect(targetBici.color).toBe("verde");
-    //                         expect(targetBici.modelo).toBe("urbana");
+                var aBici = new Bicicleta({code: 1, color: "verde", modelo: "urbana"});
+                Bicicleta.add(aBici, function(err, newBici){
+                    if(err) console.log(err)
+                    var aBici2 = new Bicicleta({code: 2, color: "rojo", modelo: "mountainbike"});
+                    Bicicleta.add(aBici2, function(err, newBici){
+                        if(err) console.log(err)
+                        Bicicleta.findByCode(1, function(err, targetBici){
+                            expect(targetBici.code).toBe(1);
+                            expect(targetBici.color).toBe("verde");
+                            expect(targetBici.modelo).toBe("urbana");
 
-    //                         done();
-    //                     });
-    //                 });
-    //             });
-    //         });
-    //     });
-    // });
+                            done();
+                        });
+                    });
+                });
+            });
+        });
+    });
     
     describe('Bicicleta.removeByCode', () => {
         it('debe eliminar la bici con code 1', (done) => {

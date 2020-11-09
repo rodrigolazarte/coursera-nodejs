@@ -9,8 +9,7 @@ exports.bicicleta_list = function(req, res){
 }
 
 exports.bicicleta_create = function(req, res){
-    var bici = new Bicicleta({code: req.body.code, color: req.body.color, modelo: req.body.modelo});
-    bici.ubicacion = [req.body.lat, req.body.lng];
+    var bici = new Bicicleta({code: req.body.code, color: req.body.color, modelo: req.body.modelo, ubicacion: [req.body.lat, req.body.lng] });
 
     bici.save(function(err){
         res.status(200).json({
